@@ -177,15 +177,6 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Cart badge - gold */
-    .cart-badge {
-      position: absolute; top: -6px; right: -6px;
-      background: linear-gradient(135deg, #f59e0b, #d97706); 
-      color: #fff; font-size: 9px; font-weight: 700;
-      width: 18px; height: 18px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-
     /* Trending badge - purple */
     .trending-badge {
       position: absolute; top: 12px; right: 12px;
@@ -285,19 +276,14 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <div class="relative cursor-pointer" onclick="toggleCart()">
-            <svg class="w-6 h-6 text-slate-400 hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
-            </svg>
-            <span id="cartCount" class="cart-badge hidden">0</span>
-          </div>
-
           <div id="desktopCurrency" class="hidden lg:flex items-center gap-2 flex-wrap justify-end">
             <button type="button" onclick="setCurrency('USD')" class="currency-pill currency-active" id="btn-USD">USD</button>
             <button type="button" onclick="setCurrency('KES')" class="currency-pill" id="btn-KES">KES</button>
             <button type="button" onclick="setCurrency('NGN')" class="currency-pill" id="btn-NGN">NGN</button>
             <button type="button" onclick="setCurrency('GHS')" class="currency-pill" id="btn-GHS">GHS</button>
             <button type="button" onclick="setCurrency('ZAR')" class="currency-pill" id="btn-ZAR">ZAR</button>
+            <button type="button" onclick="setCurrency('TZS')" class="currency-pill" id="btn-TZS">TZS</button>
+            <button type="button" onclick="setCurrency('UGX')" class="currency-pill" id="btn-UGX">UGX</button>
           </div>
 
           <button id="menuToggle" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors" aria-label="Toggle currency menu" aria-expanded="false">
@@ -315,6 +301,8 @@
           <button type="button" onclick="setCurrency('NGN')" class="currency-pill" id="mob-btn-NGN">NGN</button>
           <button type="button" onclick="setCurrency('GHS')" class="currency-pill" id="mob-btn-GHS">GHS</button>
           <button type="button" onclick="setCurrency('ZAR')" class="currency-pill" id="mob-btn-ZAR">ZAR</button>
+          <button type="button" onclick="setCurrency('TZS')" class="currency-pill" id="mob-btn-TZS">TZS</button>
+          <button type="button" onclick="setCurrency('UGX')" class="currency-pill" id="mob-btn-UGX">UGX</button>
         </div>
       </div>
     </div>
@@ -423,7 +411,7 @@
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">We use Selar for secure checkout. Selar accepts card payments (Visa, Mastercard), M-Pesa (Kenya), bank transfers, and mobile money across Kenya, Nigeria, Ghana, South Africa, and more. All transactions are encrypted and secure.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">We use Selar for secure checkout. Selar accepts card payments (Visa, Mastercard), M-Pesa (Kenya), bank transfers, and mobile money across Kenya, Nigeria, Ghana, South Africa, Tanzania, Uganda, and more. All transactions are encrypted and secure.</p>
           </div>
         </div>
 
@@ -528,13 +516,12 @@
       { id: 7, name: 'Netflix Pro', priceUSD: 5, image: 'assets/movies.jpg', selarUrl: 'https://selar.com/7517qs6418', category: 'tv', trending: true, stock: 56 },
     ];
 
-    const CURRENCIES = ['USD','KES','NGN','GHS','ZAR'];
-    const FALLBACK_RATES = { USD:1, KES:132.5, NGN:1450, GHS:14.8, ZAR:18.4 };
-    const locations = ["Nairobi","Mombasa","Lagos","Accra","Johannesburg","Eldoret","Nakuru","Abuja","Kisumu","Kumasi","Pretoria"];
+    const CURRENCIES = ['USD','KES','NGN','GHS','ZAR','TZS','UGX'];
+    const FALLBACK_RATES = { USD:1, KES:132.5, NGN:1450, GHS:14.8, ZAR:18.4, TZS:2580, UGX:3650 };
+    const locations = ["Nairobi","Mombasa","Lagos","Accra","Johannesburg","Eldoret","Nakuru","Abuja","Kisumu","Kumasi","Pretoria","Dar es Salaam","Kampala"];
 
     let currentCurrency = 'USD';
     let exchangeRates = { ...FALLBACK_RATES };
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let currentCategory = 'all';
     let searchQuery = '';
 
@@ -546,6 +533,8 @@
         if (zone.includes('Lagos')) return 'NGN';
         if (zone.includes('Accra')) return 'GHS';
         if (zone.includes('Johannesburg')) return 'ZAR';
+        if (zone.includes('Dar_es_Salaam')) return 'TZS';
+        if (zone.includes('Kampala')) return 'UGX';
         return 'USD';
       } catch(e) {
         return 'USD';
@@ -573,35 +562,6 @@
       }
     }
 
-    // ─── CART ────────────────────────────────────────────────────────────────
-    function updateCartCount() {
-      const badge = document.getElementById('cartCount');
-      if (cart.length > 0) {
-        badge.textContent = cart.length;
-        badge.classList.remove('hidden');
-      } else {
-        badge.classList.add('hidden');
-      }
-    }
-
-    function toggleCart() {
-      if (cart.length === 0) {
-        showToast('🛒 Your cart is empty');
-        return;
-      }
-      const total = cart.reduce((sum, item) => sum + item.priceUSD, 0);
-      showToast(`🛒 ${cart.length} items in cart · ${formatPrice(total)} total`);
-    }
-
-    function addToCart(productId) {
-      const product = products.find(p => p.id === productId);
-      if (!product) return;
-      cart.push(product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      updateCartCount();
-      showToast(`✅ Added "${product.name}" to cart!`);
-    }
-
     // ─── PAYMENT ──────────────────────────────────────────────────────────
     function buyProduct(productId) {
       const product = products.find(p => p.id === productId);
@@ -617,8 +577,6 @@
           btn.disabled = true;
         }
       });
-
-      addToCart(productId);
 
       setTimeout(() => {
         window.open(product.selarUrl, '_blank');
@@ -783,7 +741,6 @@
       
       currentCurrency = detectLocalCurrency();
       setCurrency(currentCurrency);
-      updateCartCount();
       startSocialProof();
       
       setTimeout(() => {
