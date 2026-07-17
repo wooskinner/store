@@ -595,14 +595,14 @@
 
       closeEmailModal();
       
-      // Process payment
+      // Process payment - DIRECT REDIRECT to Selar
       const p = products[pendingProductIndex];
-      // Open Selar directly - Selar will ask for email on their checkout page
-      // We just redirect to the product URL
-      window.open(p.selarUrl, '_blank', 'noopener,noreferrer');
       
-      // Add to cart
+      // Add to cart first
       addToCart(p.id);
+      
+      // Open Selar in new tab
+      window.open(p.selarUrl, '_blank');
       
       showToast(`📧 Check your email ${email} for access details after payment`);
       
@@ -631,6 +631,11 @@
 
     // ─── SELAR PAYMENT ───────────────────────────────────────────────────────
     function handlePayment(index, event) {
+      // Prevent default if event exists
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
       openEmailModal(index, event);
     }
 
@@ -669,26 +674,25 @@
         return;
       }
 
-      document.getElementById('products').innerHTML = filtered.map((p,i) => {
-        const originalIndex = products.indexOf(p);
+      document.getElementById('products').innerHTML = filtered.map((p) => {
         const stockWarning = p.stock < 10 ? `<span class="stock-warning">⚡ Only ${p.stock} left!</span>` : '';
         const trendingBadge = p.trending ? `<span class="trending-badge">🔥 Trending</span>` : '';
         
         return `
-        <div class="product-card">
-          <div onclick="handlePayment(${originalIndex}, event)" class="relative overflow-hidden cursor-pointer" style="line-height:0">
+        <div class="product-card" data-product-id="${p.id}">
+          <div onclick="handlePayment(${p.id}, event)" class="relative overflow-hidden cursor-pointer" style="line-height:0">
             <img src="${p.image}" alt="${p.name}" loading="lazy" 
                  onerror="this.onerror=null; this.src='https://picsum.photos/seed/${p.id}/400/300'">
             ${trendingBadge}
             <div style="position:absolute;inset:0;background:linear-gradient(to top,#0f172a 20%,transparent 100%)"></div>
           </div>
           <div class="card-body p-5 flex flex-col gap-3 flex-1">
-            <div onclick="handlePayment(${originalIndex}, event)" class="cursor-pointer">
+            <div onclick="handlePayment(${p.id}, event)" class="cursor-pointer">
               <h3 class="text-base font-black text-white tracking-tight font-display uppercase leading-tight">${p.name}</h3>
               <p class="text-2xl font-black text-blue-400 mt-1 font-display">${formatPrice(p.priceUSD)}</p>
               ${stockWarning}
             </div>
-            <button onclick="handlePayment(${originalIndex}, event)" class="btn-buy mt-auto" aria-label="Buy ${p.name}">
+            <button onclick="handlePayment(${p.id}, event)" class="btn-buy mt-auto" aria-label="Buy ${p.name}">
               Instant Access →
             </button>
           </div>
