@@ -15,14 +15,14 @@
     body { background-color: #0a0615; font-family: 'DM Sans', sans-serif; }
     h1, h2, h3, h4, .font-display { font-family: 'Syne', sans-serif; }
 
-    /* Glass card - matching new theme */
+    /* Glass card */
     .glass { background: rgba(20, 10, 40, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(139, 92, 246, 0.3); }
 
-    /* Currency pills - gold accent */
+    /* Currency pills - more compact for many currencies */
     .currency-pill {
-      padding: 8px 16px; border-radius: 12px; font-size: 11px; font-weight: 700;
+      padding: 6px 12px; border-radius: 10px; font-size: 10px; font-weight: 700;
       border: 1px solid rgba(139, 92, 246, 0.3); cursor: pointer; transition: all 0.2s;
-      color: #a78bfa; text-align: center; font-family: 'DM Sans', sans-serif; letter-spacing: 0.05em;
+      color: #a78bfa; text-align: center; font-family: 'DM Sans', sans-serif; letter-spacing: 0.03em;
       white-space: nowrap; background: transparent;
     }
     .currency-pill:hover { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; }
@@ -33,13 +33,13 @@
       box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4); 
     }
 
-    /* Logo - purple gradient with gold */
+    /* Logo */
     .logo-3d {
       background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
       box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4), inset 0 -3px 6px rgba(0,0,0,0.2);
     }
 
-    /* Toast - gold accent */
+    /* Toast */
     #toastContainer {
       position: fixed; bottom: 24px; left: 16px; z-index: 1000;
       display: flex; flex-direction: column; gap: 8px; pointer-events: none;
@@ -59,7 +59,7 @@
     .toast-fade-out { animation: slideOut 0.4s ease forwards; }
     @keyframes slideOut { from { transform: translateX(0); opacity: 0; } to { transform: translateX(-110%); opacity: 0; } }
 
-    /* Product card - purple theme */
+    /* Product card */
     .product-card {
       background: #140a28; border-radius: 24px; overflow: hidden;
       border: 1px solid rgba(139, 92, 246, 0.15); transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -73,7 +73,7 @@
     }
     .product-card:hover img { transform: scale(1.05); }
 
-    /* Buy button - purple gradient with gold hover */
+    /* Buy button */
     .btn-buy {
       width: 100%; 
       background: linear-gradient(135deg, #7c3aed, #6d28d9); 
@@ -106,17 +106,17 @@
     }
     .btn-buy:disabled { opacity: 0.6; cursor: not-allowed; }
 
-    /* Hero text - purple and gold */
+    /* Hero text */
     .hero-title { font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 1; font-weight: 900; font-family: 'Syne', sans-serif; }
 
     /* Mobile nav */
     #mobileNav { display: none; }
     #mobileNav.open { display: flex; flex-direction: column; gap: 8px; padding: 16px; border-top: 1px solid rgba(139, 92, 246, 0.2); }
 
-    /* Badge - purple theme */
+    /* Badge */
     .verified-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 100px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(124, 58, 237, 0.1); }
 
-    /* Selar notice banner - purple */
+    /* Selar notice banner */
     .selar-info { background: rgba(124, 58, 237, 0.08); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 14px; padding: 14px 18px; margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
 
     /* Responsive grid */
@@ -139,9 +139,11 @@
       .mobile-bottom-nav a:hover { color: #c4b5fd; }
       .mobile-bottom-nav svg { width: 20px; height: 20px; }
       main { padding-bottom: 70px; }
+      /* Currency pills smaller on mobile */
+      .currency-pill { padding: 4px 8px; font-size: 9px; }
     }
 
-    /* Search bar - purple */
+    /* Search bar */
     .search-bar {
       background: #140a28; border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 16px;
       padding: 12px 18px; width: 100%; color: #e2e8f0; font-size: 14px;
@@ -150,7 +152,7 @@
     .search-bar:focus { outline: none; border-color: #8b5cf6; }
     .search-bar::placeholder { color: #64748b; }
 
-    /* Category filter - purple */
+    /* Category filter */
     .category-btn {
       padding: 6px 16px; border-radius: 100px; font-size: 11px; font-weight: 700;
       border: 1px solid rgba(139, 92, 246, 0.2); background: transparent; color: #a78bfa;
@@ -163,12 +165,12 @@
       color: #fff; 
     }
 
-    /* Scrollbar - purple */
+    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; } 
     ::-webkit-scrollbar-track { background: #0a0615; }
     ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #7c3aed, #6d28d9); border-radius: 3px; }
 
-    /* Spinner - gold */
+    /* Spinner */
     .spinner {
       display: inline-block; width: 16px; height: 16px;
       border: 2px solid rgba(255,255,255,0.3);
@@ -177,7 +179,7 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Trending badge - purple */
+    /* Trending badge */
     .trending-badge {
       position: absolute; top: 12px; right: 12px;
       background: linear-gradient(135deg, #7c3aed, #4c1d95); 
@@ -192,7 +194,7 @@
       display: flex; align-items: center; gap: 4px;
     }
 
-    /* FAQ - expanded styles */
+    /* FAQ */
     .faq-item .faq-trigger span { color: #a78bfa; transition: color 0.2s; }
     .faq-item .faq-trigger:hover span { color: #c4b5fd; }
     .faq-item .faq-trigger {
@@ -205,7 +207,7 @@
       border-top: 1px solid rgba(139, 92, 246, 0.1);
     }
 
-    /* Contact section styles */
+    /* Contact section */
     .contact-card {
       background: rgba(20, 10, 40, 0.6);
       border: 1px solid rgba(139, 92, 246, 0.15);
@@ -249,6 +251,20 @@
     footer { border-top-color: rgba(139, 92, 246, 0.15) !important; }
     footer p { color: #4c1d95 !important; }
 
+    /* Currency scroll container */
+    .currency-scroll {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      max-width: 100%;
+    }
+    @media (max-width: 768px) {
+      .currency-scroll {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
     /* Text color overrides */
     .text-blue-500 { color: #8b5cf6 !important; }
     .text-blue-400 { color: #a78bfa !important; }
@@ -256,11 +272,7 @@
     .bg-blue-600 { background: #7c3aed !important; }
     .hover\:bg-blue-600:hover { background: #6d28d9 !important; }
 
-    /* Gold accent for highlights */
     .text-gold { color: #fbbf24; }
-    .border-gold { border-color: rgba(251, 191, 36, 0.3); }
-    .bg-gold { background: #fbbf24; }
-    .hover\:bg-gold:hover { background: #f59e0b; }
   </style>
 </head>
 <body class="text-slate-200 antialiased">
@@ -276,14 +288,25 @@
         </div>
 
         <div class="flex items-center gap-3">
-          <div id="desktopCurrency" class="hidden lg:flex items-center gap-2 flex-wrap justify-end">
-            <button type="button" onclick="setCurrency('USD')" class="currency-pill currency-active" id="btn-USD">USD</button>
-            <button type="button" onclick="setCurrency('KES')" class="currency-pill" id="btn-KES">KES</button>
-            <button type="button" onclick="setCurrency('NGN')" class="currency-pill" id="btn-NGN">NGN</button>
-            <button type="button" onclick="setCurrency('GHS')" class="currency-pill" id="btn-GHS">GHS</button>
-            <button type="button" onclick="setCurrency('ZAR')" class="currency-pill" id="btn-ZAR">ZAR</button>
-            <button type="button" onclick="setCurrency('TZS')" class="currency-pill" id="btn-TZS">TZS</button>
-            <button type="button" onclick="setCurrency('UGX')" class="currency-pill" id="btn-UGX">UGX</button>
+          <div id="desktopCurrency" class="hidden lg:flex items-center gap-2 flex-wrap justify-end max-w-[500px]">
+            <div class="currency-scroll">
+              <button type="button" onclick="setCurrency('USD')" class="currency-pill currency-active" id="btn-USD">USD</button>
+              <button type="button" onclick="setCurrency('KES')" class="currency-pill" id="btn-KES">KES</button>
+              <button type="button" onclick="setCurrency('NGN')" class="currency-pill" id="btn-NGN">NGN</button>
+              <button type="button" onclick="setCurrency('GHS')" class="currency-pill" id="btn-GHS">GHS</button>
+              <button type="button" onclick="setCurrency('ZAR')" class="currency-pill" id="btn-ZAR">ZAR</button>
+              <button type="button" onclick="setCurrency('TZS')" class="currency-pill" id="btn-TZS">TZS</button>
+              <button type="button" onclick="setCurrency('UGX')" class="currency-pill" id="btn-UGX">UGX</button>
+              <button type="button" onclick="setCurrency('XAF')" class="currency-pill" id="btn-XAF">XAF</button>
+              <button type="button" onclick="setCurrency('XOF')" class="currency-pill" id="btn-XOF">XOF</button>
+              <button type="button" onclick="setCurrency('MAD')" class="currency-pill" id="btn-MAD">MAD</button>
+              <button type="button" onclick="setCurrency('EGP')" class="currency-pill" id="btn-EGP">EGP</button>
+              <button type="button" onclick="setCurrency('ETB')" class="currency-pill" id="btn-ETB">ETB</button>
+              <button type="button" onclick="setCurrency('ZMW')" class="currency-pill" id="btn-ZMW">ZMW</button>
+              <button type="button" onclick="setCurrency('MWK')" class="currency-pill" id="btn-MWK">MWK</button>
+              <button type="button" onclick="setCurrency('BWP')" class="currency-pill" id="btn-BWP">BWP</button>
+              <button type="button" onclick="setCurrency('MUR')" class="currency-pill" id="btn-MUR">MUR</button>
+            </div>
           </div>
 
           <button id="menuToggle" class="lg:hidden p-2 text-slate-400 hover:text-white transition-colors" aria-label="Toggle currency menu" aria-expanded="false">
@@ -295,7 +318,7 @@
 
       <div id="mobileNav" role="navigation" aria-label="Currency selector">
         <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1 px-1">Select Currency</p>
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-1.5">
           <button type="button" onclick="setCurrency('USD')" class="currency-pill currency-active" id="mob-btn-USD">USD</button>
           <button type="button" onclick="setCurrency('KES')" class="currency-pill" id="mob-btn-KES">KES</button>
           <button type="button" onclick="setCurrency('NGN')" class="currency-pill" id="mob-btn-NGN">NGN</button>
@@ -303,6 +326,15 @@
           <button type="button" onclick="setCurrency('ZAR')" class="currency-pill" id="mob-btn-ZAR">ZAR</button>
           <button type="button" onclick="setCurrency('TZS')" class="currency-pill" id="mob-btn-TZS">TZS</button>
           <button type="button" onclick="setCurrency('UGX')" class="currency-pill" id="mob-btn-UGX">UGX</button>
+          <button type="button" onclick="setCurrency('XAF')" class="currency-pill" id="mob-btn-XAF">XAF</button>
+          <button type="button" onclick="setCurrency('XOF')" class="currency-pill" id="mob-btn-XOF">XOF</button>
+          <button type="button" onclick="setCurrency('MAD')" class="currency-pill" id="mob-btn-MAD">MAD</button>
+          <button type="button" onclick="setCurrency('EGP')" class="currency-pill" id="mob-btn-EGP">EGP</button>
+          <button type="button" onclick="setCurrency('ETB')" class="currency-pill" id="mob-btn-ETB">ETB</button>
+          <button type="button" onclick="setCurrency('ZMW')" class="currency-pill" id="mob-btn-ZMW">ZMW</button>
+          <button type="button" onclick="setCurrency('MWK')" class="currency-pill" id="mob-btn-MWK">MWK</button>
+          <button type="button" onclick="setCurrency('BWP')" class="currency-pill" id="mob-btn-BWP">BWP</button>
+          <button type="button" onclick="setCurrency('MUR')" class="currency-pill" id="mob-btn-MUR">MUR</button>
         </div>
       </div>
     </div>
@@ -316,6 +348,10 @@
       </div>
       <p class="text-slate-400 max-w-xl mx-auto text-sm tracking-widest uppercase font-semibold">
         Premium Digital Subscriptions · Instant Delivery · Secure Checkout
+      </p>
+      <!-- Currency indicator -->
+      <p class="text-[10px] text-purple-400/60 mt-4 font-medium">
+        💱 Showing prices in <span id="currencyDisplay" class="text-white font-bold">USD</span>
       </p>
     </section>
 
@@ -371,7 +407,6 @@
     <section class="max-w-3xl mx-auto mb-24">
       <h3 class="text-3xl font-black text-white text-center mb-10 font-display uppercase tracking-tighter">Get in <span class="text-purple-400">Touch</span></h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <!-- WhatsApp -->
         <div class="contact-card">
           <span class="icon">💬</span>
           <span class="label">WhatsApp</span>
@@ -380,7 +415,6 @@
           </a>
           <p class="text-[10px] text-slate-500 mt-2">Available 24/7 for support</p>
         </div>
-        <!-- Email -->
         <div class="contact-card">
           <span class="icon">📧</span>
           <span class="label">Email</span>
@@ -411,7 +445,7 @@
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">We use Selar for secure checkout. Selar accepts card payments (Visa, Mastercard), M-Pesa (Kenya), bank transfers, and mobile money across Kenya, Nigeria, Ghana, South Africa, Tanzania, Uganda, and more. All transactions are encrypted and secure.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">We use Selar for secure checkout. Selar accepts card payments (Visa, Mastercard), M-Pesa (Kenya), bank transfers, and mobile money across Africa. All transactions are encrypted and secure.</p>
           </div>
         </div>
 
@@ -516,9 +550,41 @@
       { id: 7, name: 'Netflix Pro', priceUSD: 5, image: 'assets/movies.jpg', selarUrl: 'https://selar.com/7517qs6418', category: 'tv', trending: true, stock: 56 },
     ];
 
-    const CURRENCIES = ['USD','KES','NGN','GHS','ZAR','TZS','UGX'];
-    const FALLBACK_RATES = { USD:1, KES:132.5, NGN:1450, GHS:14.8, ZAR:18.4, TZS:2580, UGX:3650 };
-    const locations = ["Nairobi","Mombasa","Lagos","Accra","Johannesburg","Eldoret","Nakuru","Abuja","Kisumu","Kumasi","Pretoria","Dar es Salaam","Kampala"];
+    // ─── CURRENCIES ──────────────────────────────────────────────────────────
+    const CURRENCIES = ['USD','KES','NGN','GHS','ZAR','TZS','UGX','XAF','XOF','MAD','EGP','ETB','ZMW','MWK','BWP','MUR'];
+    const FALLBACK_RATES = { 
+      USD: 1,
+      KES: 132.5,
+      NGN: 1450,
+      GHS: 14.8,
+      ZAR: 18.4,
+      TZS: 2580,
+      UGX: 3650,
+      XAF: 610,
+      XOF: 610,
+      MAD: 10.2,
+      EGP: 30.8,
+      ETB: 55.6,
+      ZMW: 21.5,
+      MWK: 1740,
+      BWP: 13.6,
+      MUR: 45.8
+    };
+
+    // ─── COUNTRY TO CURRENCY MAPPING ──────────────────────────────────────
+    const countryCurrencyMap = {
+      KE: 'KES', NG: 'NGN', GH: 'GHS', ZA: 'ZAR',
+      TZ: 'TZS', UG: 'UGX', CM: 'XAF', SN: 'XOF',
+      MA: 'MAD', EG: 'EGP', ET: 'ETB', ZM: 'ZMW',
+      MW: 'MWK', BW: 'BWP', MU: 'MUR'
+    };
+
+    const locations = [
+      "Nairobi","Mombasa","Lagos","Accra","Johannesburg",
+      "Dar es Salaam","Kampala","Yaoundé","Dakar","Casablanca",
+      "Cairo","Addis Ababa","Lusaka","Lilongwe","Gaborone","Port Louis",
+      "Eldoret","Nakuru","Abuja","Kisumu","Kumasi","Pretoria"
+    ];
 
     let currentCurrency = 'USD';
     let exchangeRates = { ...FALLBACK_RATES };
@@ -529,12 +595,26 @@
     function detectLocalCurrency() {
       try {
         const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        if (zone.includes('Nairobi')) return 'KES';
-        if (zone.includes('Lagos')) return 'NGN';
-        if (zone.includes('Accra')) return 'GHS';
-        if (zone.includes('Johannesburg')) return 'ZAR';
-        if (zone.includes('Dar_es_Salaam')) return 'TZS';
-        if (zone.includes('Kampala')) return 'UGX';
+        const countryMap = {
+          'Nairobi': 'KES', 'Mombasa': 'KES',
+          'Lagos': 'NGN', 'Abuja': 'NGN',
+          'Accra': 'GHS',
+          'Johannesburg': 'ZAR', 'Pretoria': 'ZAR',
+          'Dar_es_Salaam': 'TZS', 'Kampala': 'UGX',
+          'Yaounde': 'XAF', 'Douala': 'XAF',
+          'Dakar': 'XOF',
+          'Casablanca': 'MAD', 'Rabat': 'MAD',
+          'Cairo': 'EGP',
+          'Addis_Ababa': 'ETB',
+          'Lusaka': 'ZMW',
+          'Lilongwe': 'MWK',
+          'Gaborone': 'BWP',
+          'Port_Louis': 'MUR'
+        };
+        
+        for (const [key, value] of Object.entries(countryMap)) {
+          if (zone.includes(key)) return value;
+        }
         return 'USD';
       } catch(e) {
         return 'USD';
@@ -549,6 +629,7 @@
         if(d) d.classList.toggle('currency-active', c === cur);
         if(m) m.classList.toggle('currency-active', c === cur);
       });
+      document.getElementById('currencyDisplay').textContent = cur;
       closeMobileNav();
       renderProducts();
     }
