@@ -12,31 +12,41 @@
 
   <style>
     * { box-sizing: border-box; }
-    body { background-color: #020617; font-family: 'DM Sans', sans-serif; }
+    body { background-color: #0a0615; font-family: 'DM Sans', sans-serif; }
     h1, h2, h3, h4, .font-display { font-family: 'Syne', sans-serif; }
 
-    .glass { background: rgba(15,23,42,0.85); backdrop-filter: blur(12px); border: 1px solid rgba(51,65,85,0.6); }
+    /* Glass card - matching new theme */
+    .glass { background: rgba(20, 10, 40, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(139, 92, 246, 0.3); }
 
+    /* Currency pills - gold accent */
     .currency-pill {
       padding: 8px 16px; border-radius: 12px; font-size: 11px; font-weight: 700;
-      border: 1px solid #334155; cursor: pointer; transition: all 0.2s;
-      color: #94a3b8; text-align: center; font-family: 'DM Sans', sans-serif; letter-spacing: 0.05em;
+      border: 1px solid rgba(139, 92, 246, 0.3); cursor: pointer; transition: all 0.2s;
+      color: #a78bfa; text-align: center; font-family: 'DM Sans', sans-serif; letter-spacing: 0.05em;
       white-space: nowrap; background: transparent;
     }
-    .currency-pill:hover { background: #1e293b; color: #e2e8f0; }
-    .currency-active { background: #2563eb !important; border-color: #3b82f6 !important; color: #fff !important; box-shadow: 0 4px 20px rgba(37,99,235,0.35); }
-
-    .logo-3d {
-      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-      box-shadow: 0 4px 15px rgba(59,130,246,0.4), inset 0 -3px 6px rgba(0,0,0,0.2);
+    .currency-pill:hover { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; }
+    .currency-active { 
+      background: linear-gradient(135deg, #7c3aed, #6d28d9) !important; 
+      border-color: #8b5cf6 !important; 
+      color: #fff !important; 
+      box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4); 
     }
 
+    /* Logo - purple gradient with gold */
+    .logo-3d {
+      background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
+      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4), inset 0 -3px 6px rgba(0,0,0,0.2);
+    }
+
+    /* WhatsApp float */
     .whatsapp-float {
       position: fixed; bottom: 28px; right: 24px; z-index: 100;
       transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275);
     }
     .whatsapp-float:hover { transform: scale(1.1) rotate(5deg); }
 
+    /* Toast - gold accent */
     #toastContainer {
       position: fixed; bottom: 24px; left: 16px; z-index: 1000;
       display: flex; flex-direction: column; gap: 8px; pointer-events: none;
@@ -45,9 +55,9 @@
       overflow-y: auto;
     }
     .toast {
-      background: rgba(15,23,42,0.95); border: 1px solid #1e293b;
+      background: rgba(20, 10, 40, 0.95); border: 1px solid rgba(139, 92, 246, 0.2);
       color: #fff; font-size: 11px; font-weight: 700; font-family: 'DM Sans', sans-serif;
-      padding: 12px 18px; border-radius: 14px; border-left: 3px solid #10b981;
+      padding: 12px 18px; border-radius: 14px; border-left: 3px solid #fbbf24;
       box-shadow: 0 8px 32px rgba(0,0,0,0.4); pointer-events: auto;
       animation: slideIn 0.4s cubic-bezier(0.175,0.885,0.32,1.275) forwards;
       max-width: 320px;
@@ -56,39 +66,67 @@
     .toast-fade-out { animation: slideOut 0.4s ease forwards; }
     @keyframes slideOut { from { transform: translateX(0); opacity: 0; } to { transform: translateX(-110%); opacity: 0; } }
 
+    /* Product card - purple theme */
     .product-card {
-      background: #0f172a; border-radius: 24px; overflow: hidden;
-      border: 1px solid #1e293b; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      background: #140a28; border-radius: 24px; overflow: hidden;
+      border: 1px solid rgba(139, 92, 246, 0.15); transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
       display: flex; flex-direction: column;
     }
-    .product-card:hover { border-color: rgba(59,130,246,0.5); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(37,99,235,0.15); }
+    .product-card:hover { border-color: rgba(139, 92, 246, 0.5); transform: translateY(-4px); box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15); }
     .product-card img { 
       width: 100%; height: 180px; object-fit: cover; 
       transition: opacity 0.4s, transform 0.6s; display: block; 
-      background: #0a0f1f;
+      background: #0a0615;
     }
     .product-card:hover img { transform: scale(1.05); }
 
+    /* Buy button - purple gradient with gold hover */
     .btn-buy {
-      width: 100%; background: #2563eb; color: #fff; font-weight: 800;
+      width: 100%; 
+      background: linear-gradient(135deg, #7c3aed, #6d28d9); 
+      color: #fff; font-weight: 800;
       padding: 13px; border-radius: 12px; font-size: 11px; letter-spacing: 0.08em;
       text-transform: uppercase; border: none; cursor: pointer;
-      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      transition: all 0.3s;
       font-family: 'Syne', sans-serif;
       min-height: 48px;
+      position: relative;
+      overflow: hidden;
     }
-    .btn-buy:hover:not(:disabled) { background: #3b82f6; box-shadow: 0 6px 24px rgba(37,99,235,0.4); transform: translateY(-1px); }
+    .btn-buy::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    .btn-buy:hover:not(:disabled)::before {
+      left: 100%;
+    }
+    .btn-buy:hover:not(:disabled) { 
+      background: linear-gradient(135deg, #8b5cf6, #7c3aed); 
+      box-shadow: 0 6px 24px rgba(124, 58, 237, 0.4); 
+      transform: translateY(-1px); 
+    }
     .btn-buy:disabled { opacity: 0.6; cursor: not-allowed; }
 
+    /* Hero text - purple and gold */
     .hero-title { font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 1; font-weight: 900; font-family: 'Syne', sans-serif; }
 
+    /* Mobile nav */
     #mobileNav { display: none; }
-    #mobileNav.open { display: flex; flex-direction: column; gap: 8px; padding: 16px; border-top: 1px solid #1e293b; }
+    #mobileNav.open { display: flex; flex-direction: column; gap: 8px; padding: 16px; border-top: 1px solid rgba(139, 92, 246, 0.2); }
 
-    .verified-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 100px; border: 1px solid rgba(59,130,246,0.4); background: rgba(37,99,235,0.1); }
+    /* Badge - purple theme */
+    .verified-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 100px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(124, 58, 237, 0.1); }
 
-    .selar-info { background: rgba(37,99,235,0.08); border: 1px solid rgba(59,130,246,0.2); border-radius: 14px; padding: 14px 18px; margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+    /* Selar notice banner - purple */
+    .selar-info { background: rgba(124, 58, 237, 0.08); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 14px; padding: 14px 18px; margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
 
+    /* Responsive grid */
     .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
     @media (max-width: 640px) {
       .products-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -99,67 +137,100 @@
       .whatsapp-float { padding: 12px; }
       .mobile-bottom-nav {
         position: fixed; bottom: 0; left: 0; right: 0;
-        background: rgba(15,23,42,0.95); backdrop-filter: blur(12px);
-        border-top: 1px solid #1e293b; z-index: 50;
+        background: rgba(20, 10, 40, 0.95); backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(139, 92, 246, 0.2); z-index: 50;
         display: flex; justify-content: space-around; padding: 8px 0;
       }
       .mobile-bottom-nav a {
-        color: #94a3b8; font-size: 10px; font-weight: 600;
+        color: #a78bfa; font-size: 10px; font-weight: 600;
         display: flex; flex-direction: column; align-items: center; gap: 2px;
         text-decoration: none; padding: 4px 12px; transition: color 0.2s;
       }
-      .mobile-bottom-nav a:hover { color: #fff; }
+      .mobile-bottom-nav a:hover { color: #c4b5fd; }
       .mobile-bottom-nav svg { width: 20px; height: 20px; }
       main { padding-bottom: 70px; }
     }
 
+    /* Search bar - purple */
     .search-bar {
-      background: #0f172a; border: 1px solid #1e293b; border-radius: 16px;
+      background: #140a28; border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 16px;
       padding: 12px 18px; width: 100%; color: #e2e8f0; font-size: 14px;
       transition: border-color 0.3s;
     }
-    .search-bar:focus { outline: none; border-color: #3b82f6; }
+    .search-bar:focus { outline: none; border-color: #8b5cf6; }
     .search-bar::placeholder { color: #64748b; }
 
+    /* Category filter - purple */
     .category-btn {
       padding: 6px 16px; border-radius: 100px; font-size: 11px; font-weight: 700;
-      border: 1px solid #1e293b; background: transparent; color: #94a3b8;
+      border: 1px solid rgba(139, 92, 246, 0.2); background: transparent; color: #a78bfa;
       cursor: pointer; transition: all 0.2s; white-space: nowrap;
     }
-    .category-btn:hover { background: #1e293b; color: #e2e8f0; }
-    .category-btn.active { background: #2563eb; border-color: #3b82f6; color: #fff; }
+    .category-btn:hover { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; }
+    .category-btn.active { 
+      background: linear-gradient(135deg, #7c3aed, #6d28d9); 
+      border-color: #8b5cf6; 
+      color: #fff; 
+    }
 
+    /* Scrollbar - purple */
     ::-webkit-scrollbar { width: 6px; } 
-    ::-webkit-scrollbar-track { background: #020617; }
-    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+    ::-webkit-scrollbar-track { background: #0a0615; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #7c3aed, #6d28d9); border-radius: 3px; }
 
+    /* Spinner - gold */
     .spinner {
       display: inline-block; width: 16px; height: 16px;
       border: 2px solid rgba(255,255,255,0.3);
-      border-top-color: #fff; border-radius: 50%;
+      border-top-color: #fbbf24; border-radius: 50%;
       animation: spin 0.6s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* Cart badge - gold */
     .cart-badge {
       position: absolute; top: -6px; right: -6px;
-      background: #ef4444; color: #fff; font-size: 9px; font-weight: 700;
+      background: linear-gradient(135deg, #f59e0b, #d97706); 
+      color: #fff; font-size: 9px; font-weight: 700;
       width: 18px; height: 18px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
     }
 
+    /* Trending badge - purple */
     .trending-badge {
       position: absolute; top: 12px; right: 12px;
-      background: #ef4444; color: #fff; font-size: 9px; font-weight: 800;
+      background: linear-gradient(135deg, #7c3aed, #4c1d95); 
+      color: #fff; font-size: 9px; font-weight: 800;
       padding: 4px 10px; border-radius: 100px; text-transform: uppercase;
-      letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(239,68,68,0.3);
+      letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
       z-index: 10;
     }
 
     .stock-warning {
-      font-size: 10px; color: #f59e0b; font-weight: 600;
+      font-size: 10px; color: #fbbf24; font-weight: 600;
       display: flex; align-items: center; gap: 4px;
     }
+
+    /* FAQ - purple accents */
+    .faq-item .faq-trigger span { color: #a78bfa; }
+    .faq-item .faq-trigger:hover span { color: #c4b5fd; }
+
+    /* Footer */
+    footer { border-top-color: rgba(139, 92, 246, 0.15) !important; }
+    footer p { color: #4c1d95 !important; }
+
+    /* Text color overrides */
+    .text-blue-500 { color: #8b5cf6 !important; }
+    .text-blue-400 { color: #a78bfa !important; }
+    .text-blue-600 { color: #7c3aed !important; }
+    .bg-blue-600 { background: #7c3aed !important; }
+    .hover\:bg-blue-600:hover { background: #6d28d9 !important; }
+
+    /* Gold accent for highlights */
+    .text-gold { color: #fbbf24; }
+    .border-gold { border-color: rgba(251, 191, 36, 0.3); }
+    .bg-gold { background: #fbbf24; }
+    .hover\:bg-gold:hover { background: #f59e0b; }
   </style>
 </head>
 <body class="text-slate-200 antialiased">
@@ -179,7 +250,7 @@
       <div class="flex items-center justify-between gap-4">
         <div class="flex items-center gap-3 shrink-0">
           <div class="w-9 h-9 logo-3d rounded-xl flex items-center justify-center font-black text-white text-lg font-display">C</div>
-          <h1 class="text-xl font-black text-white tracking-tighter font-display">ClearView <span class="text-blue-500">Store</span></h1>
+          <h1 class="text-xl font-black text-white tracking-tighter font-display">ClearView <span class="text-purple-400">Store</span></h1>
         </div>
 
         <div class="flex items-center gap-3">
@@ -222,7 +293,7 @@
 
     <section class="text-center py-16 sm:py-20">
       <div class="hero-title text-white mb-4 uppercase tracking-tight">
-        Crystal Clear <span class="text-blue-500">Access.</span>
+        Crystal Clear <span class="text-purple-400">Access.</span>
       </div>
       <p class="text-slate-400 max-w-xl mx-auto text-sm tracking-widest uppercase font-semibold">
         Premium Digital Subscriptions · Instant Delivery · Secure Checkout
@@ -243,7 +314,7 @@
     </div>
 
     <div class="selar-info mb-8">
-      <svg class="w-5 h-5 text-blue-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+      <svg class="w-5 h-5 text-purple-400 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
       <p class="text-xs text-slate-300 font-medium">Checkout is powered by <strong class="text-white">Selar</strong> — card, M-Pesa, bank transfer & mobile money accepted. You'll be taken to a secure checkout page.</p>
     </div>
 
@@ -252,37 +323,37 @@
     <section class="mt-24 border-t border-slate-900 pt-16">
       <div class="text-center mb-12">
         <div class="verified-badge mx-auto mb-6 w-fit">
-          <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 01-2.812 2.812c.051.64.304 1.24.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-          <span class="text-[10px] font-black tracking-widest text-blue-400 uppercase">Verified Digital Merchant 2026</span>
+          <svg class="w-4 h-4 text-purple-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 01-2.812 2.812c.051.64.304 1.24.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          <span class="text-[10px] font-black tracking-widest text-purple-400 uppercase">Verified Digital Merchant 2026</span>
         </div>
-        <h3 class="text-4xl font-black text-white font-display uppercase tracking-tighter">Trusted by <span class="text-blue-500">Thousands</span></h3>
+        <h3 class="text-4xl font-black text-white font-display uppercase tracking-tighter">Trusted by <span class="text-purple-400">Thousands</span></h3>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-20">
         <div class="glass p-7 rounded-2xl">
           <div class="text-yellow-400 text-xs mb-3">★★★★★</div>
           <p class="text-sm italic text-slate-300 leading-relaxed">"Instant delivery! Got my Spotify premium in minutes."</p>
-          <p class="text-[10px] font-black mt-5 text-blue-500 uppercase tracking-widest">— Brian O.</p>
+          <p class="text-[10px] font-black mt-5 text-purple-400 uppercase tracking-widest">— Brian O.</p>
         </div>
         <div class="glass p-7 rounded-2xl">
           <div class="text-yellow-400 text-xs mb-3">★★★★★</div>
           <p class="text-sm italic text-slate-300 leading-relaxed">"The IPTV quality is amazing. Best streaming service."</p>
-          <p class="text-[10px] font-black mt-5 text-blue-500 uppercase tracking-widest">— Sarah M.</p>
+          <p class="text-[10px] font-black mt-5 text-purple-400 uppercase tracking-widest">— Sarah M.</p>
         </div>
         <div class="glass p-7 rounded-2xl">
           <div class="text-yellow-400 text-xs mb-3">★★★★★</div>
           <p class="text-sm italic text-slate-300 leading-relaxed">"Very reliable. Support helped me set up my DSTV."</p>
-          <p class="text-[10px] font-black mt-5 text-blue-500 uppercase tracking-widest">— David K.</p>
+          <p class="text-[10px] font-black mt-5 text-purple-400 uppercase tracking-widest">— David K.</p>
         </div>
       </div>
     </section>
 
     <section class="max-w-3xl mx-auto mb-24">
-      <h3 class="text-3xl font-black text-white text-center mb-10 font-display uppercase tracking-tighter">Got <span class="text-blue-500">Questions?</span></h3>
+      <h3 class="text-3xl font-black text-white text-center mb-10 font-display uppercase tracking-tighter">Got <span class="text-purple-400">Questions?</span></h3>
       <div class="space-y-3" id="faqList">
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
-            <span class="font-bold text-blue-400 text-sm">How do I receive my order?</span>
+            <span class="font-bold text-purple-400 text-sm">How do I receive my order?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
@@ -291,7 +362,7 @@
         </div>
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
-            <span class="font-bold text-blue-400 text-sm">What payment methods are accepted?</span>
+            <span class="font-bold text-purple-400 text-sm">What payment methods are accepted?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
@@ -300,7 +371,7 @@
         </div>
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
-            <span class="font-bold text-blue-400 text-sm">What if I have trouble setting up?</span>
+            <span class="font-bold text-purple-400 text-sm">What if I have trouble setting up?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
@@ -333,7 +404,7 @@
   </nav>
 
   <footer class="bg-slate-950 px-6 py-10 text-center border-t border-slate-900">
-    <p class="text-[10px] text-slate-700 font-bold uppercase tracking-widest">&copy; 2026 ClearView Store. All Rights Reserved.</p>
+    <p class="text-[10px] text-purple-900 font-bold uppercase tracking-widest">&copy; 2026 ClearView Store. All Rights Reserved.</p>
   </footer>
 
   <script>
@@ -423,16 +494,14 @@
       showToast(`✅ Added "${product.name}" to cart!`);
     }
 
-    // ─── PAYMENT - DIRECT REDIRECT ──────────────────────────────────────────
+    // ─── PAYMENT ──────────────────────────────────────────────────────────
     function buyProduct(productId) {
-      // Find the product
       const product = products.find(p => p.id === productId);
       if (!product) {
         showToast('❌ Product not found');
         return;
       }
 
-      // Show loading state on the button
       const buttons = document.querySelectorAll('.btn-buy');
       buttons.forEach(btn => {
         if (btn.closest('.product-card')?.querySelector(`[data-product-id="${productId}"]`)) {
@@ -441,21 +510,16 @@
         }
       });
 
-      // Add to cart
       addToCart(productId);
 
-      // Open Selar in new tab after short delay
       setTimeout(() => {
         window.open(product.selarUrl, '_blank');
-        
-        // Reset button
         buttons.forEach(btn => {
           if (btn.closest('.product-card')?.querySelector(`[data-product-id="${productId}"]`)) {
             btn.innerHTML = 'Instant Access →';
             btn.disabled = false;
           }
         });
-        
         showToast(`🔗 Opening ${product.name} checkout...`);
       }, 500);
     }
@@ -537,12 +601,12 @@
             <img src="${p.image}" alt="${p.name}" loading="lazy" 
                  onerror="this.onerror=null; this.src='https://picsum.photos/seed/${p.id}/400/300'">
             ${trendingBadge}
-            <div style="position:absolute;inset:0;background:linear-gradient(to top,#0f172a 20%,transparent 100%)"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,#140a28 20%,transparent 100%)"></div>
           </div>
           <div class="card-body p-5 flex flex-col gap-3 flex-1">
             <div onclick="buyProduct(${p.id})" class="cursor-pointer">
               <h3 class="text-base font-black text-white tracking-tight font-display uppercase leading-tight">${p.name}</h3>
-              <p class="text-2xl font-black text-blue-400 mt-1 font-display">${formatPrice(p.priceUSD)}</p>
+              <p class="text-2xl font-black text-purple-400 mt-1 font-display">${formatPrice(p.priceUSD)}</p>
               ${stockWarning}
             </div>
             <button onclick="buyProduct(${p.id})" class="btn-buy mt-auto" aria-label="Buy ${p.name}">
