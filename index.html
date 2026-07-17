@@ -15,10 +15,8 @@
     body { background-color: #0a0615; font-family: 'DM Sans', sans-serif; }
     h1, h2, h3, h4, .font-display { font-family: 'Syne', sans-serif; }
 
-    /* Glass card */
     .glass { background: rgba(20, 10, 40, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(139, 92, 246, 0.3); }
 
-    /* Currency pills - more compact for many currencies */
     .currency-pill {
       padding: 6px 12px; border-radius: 10px; font-size: 10px; font-weight: 700;
       border: 1px solid rgba(139, 92, 246, 0.3); cursor: pointer; transition: all 0.2s;
@@ -33,13 +31,11 @@
       box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4); 
     }
 
-    /* Logo */
     .logo-3d {
       background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
       box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4), inset 0 -3px 6px rgba(0,0,0,0.2);
     }
 
-    /* Toast */
     #toastContainer {
       position: fixed; bottom: 24px; left: 16px; z-index: 1000;
       display: flex; flex-direction: column; gap: 8px; pointer-events: none;
@@ -59,7 +55,6 @@
     .toast-fade-out { animation: slideOut 0.4s ease forwards; }
     @keyframes slideOut { from { transform: translateX(0); opacity: 0; } to { transform: translateX(-110%); opacity: 0; } }
 
-    /* Product card */
     .product-card {
       background: #140a28; border-radius: 24px; overflow: hidden;
       border: 1px solid rgba(139, 92, 246, 0.15); transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
@@ -73,7 +68,6 @@
     }
     .product-card:hover img { transform: scale(1.05); }
 
-    /* Buy button */
     .btn-buy {
       width: 100%; 
       background: linear-gradient(135deg, #7c3aed, #6d28d9); 
@@ -106,20 +100,15 @@
     }
     .btn-buy:disabled { opacity: 0.6; cursor: not-allowed; }
 
-    /* Hero text */
     .hero-title { font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 1; font-weight: 900; font-family: 'Syne', sans-serif; }
 
-    /* Mobile nav */
     #mobileNav { display: none; }
     #mobileNav.open { display: flex; flex-direction: column; gap: 8px; padding: 16px; border-top: 1px solid rgba(139, 92, 246, 0.2); }
 
-    /* Badge */
     .verified-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 20px; border-radius: 100px; border: 1px solid rgba(139, 92, 246, 0.4); background: rgba(124, 58, 237, 0.1); }
 
-    /* Selar notice banner */
     .selar-info { background: rgba(124, 58, 237, 0.08); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 14px; padding: 14px 18px; margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
 
-    /* Responsive grid */
     .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
     @media (max-width: 640px) {
       .products-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -139,11 +128,9 @@
       .mobile-bottom-nav a:hover { color: #c4b5fd; }
       .mobile-bottom-nav svg { width: 20px; height: 20px; }
       main { padding-bottom: 70px; }
-      /* Currency pills smaller on mobile */
       .currency-pill { padding: 4px 8px; font-size: 9px; }
     }
 
-    /* Search bar */
     .search-bar {
       background: #140a28; border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 16px;
       padding: 12px 18px; width: 100%; color: #e2e8f0; font-size: 14px;
@@ -152,7 +139,6 @@
     .search-bar:focus { outline: none; border-color: #8b5cf6; }
     .search-bar::placeholder { color: #64748b; }
 
-    /* Category filter */
     .category-btn {
       padding: 6px 16px; border-radius: 100px; font-size: 11px; font-weight: 700;
       border: 1px solid rgba(139, 92, 246, 0.2); background: transparent; color: #a78bfa;
@@ -165,12 +151,10 @@
       color: #fff; 
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; } 
     ::-webkit-scrollbar-track { background: #0a0615; }
     ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #7c3aed, #6d28d9); border-radius: 3px; }
 
-    /* Spinner */
     .spinner {
       display: inline-block; width: 16px; height: 16px;
       border: 2px solid rgba(255,255,255,0.3);
@@ -179,7 +163,6 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Trending badge */
     .trending-badge {
       position: absolute; top: 12px; right: 12px;
       background: linear-gradient(135deg, #7c3aed, #4c1d95); 
@@ -194,20 +177,12 @@
       display: flex; align-items: center; gap: 4px;
     }
 
-    /* FAQ */
     .faq-item .faq-trigger span { color: #a78bfa; transition: color 0.2s; }
     .faq-item .faq-trigger:hover span { color: #c4b5fd; }
-    .faq-item .faq-trigger {
-      transition: background 0.2s;
-    }
-    .faq-item .faq-trigger:hover {
-      background: rgba(139, 92, 246, 0.05);
-    }
-    .faq-body {
-      border-top: 1px solid rgba(139, 92, 246, 0.1);
-    }
+    .faq-item .faq-trigger { transition: background 0.2s; }
+    .faq-item .faq-trigger:hover { background: rgba(139, 92, 246, 0.05); }
+    .faq-body { border-top: 1px solid rgba(139, 92, 246, 0.1); }
 
-    /* Contact section */
     .contact-card {
       background: rgba(20, 10, 40, 0.6);
       border: 1px solid rgba(139, 92, 246, 0.15);
@@ -221,58 +196,41 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 30px rgba(124, 58, 237, 0.1);
     }
-    .contact-card .icon {
-      font-size: 32px;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .contact-card a {
-      color: #a78bfa;
-      text-decoration: none;
-      transition: color 0.2s;
-      font-weight: 600;
-      font-size: 14px;
-      word-break: break-all;
-    }
-    .contact-card a:hover {
-      color: #c4b5fd;
-    }
-    .contact-card .label {
-      color: #94a3b8;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: block;
-      margin-bottom: 6px;
-    }
+    .contact-card .icon { font-size: 32px; margin-bottom: 12px; display: block; }
+    .contact-card a { color: #a78bfa; text-decoration: none; transition: color 0.2s; font-weight: 600; font-size: 14px; word-break: break-all; }
+    .contact-card a:hover { color: #c4b5fd; }
+    .contact-card .label { color: #94a3b8; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 6px; }
 
-    /* Footer */
     footer { border-top-color: rgba(139, 92, 246, 0.15) !important; }
     footer p { color: #4c1d95 !important; }
 
-    /* Currency scroll container */
-    .currency-scroll {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      max-width: 100%;
-    }
-    @media (max-width: 768px) {
-      .currency-scroll {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-    }
+    .currency-scroll { display: flex; gap: 6px; flex-wrap: wrap; max-width: 100%; }
+    @media (max-width: 768px) { .currency-scroll { flex-wrap: wrap; justify-content: center; } }
 
-    /* Text color overrides */
     .text-blue-500 { color: #8b5cf6 !important; }
     .text-blue-400 { color: #a78bfa !important; }
     .text-blue-600 { color: #7c3aed !important; }
     .bg-blue-600 { background: #7c3aed !important; }
     .hover\:bg-blue-600:hover { background: #6d28d9 !important; }
-
     .text-gold { color: #fbbf24; }
+
+    /* Currency indicator badge */
+    .currency-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.25);
+      padding: 4px 14px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #a78bfa;
+    }
+    .currency-indicator strong {
+      color: #fff;
+      font-weight: 800;
+    }
   </style>
 </head>
 <body class="text-slate-200 antialiased">
@@ -349,10 +307,11 @@
       <p class="text-slate-400 max-w-xl mx-auto text-sm tracking-widest uppercase font-semibold">
         Premium Digital Subscriptions · Instant Delivery · Secure Checkout
       </p>
-      <!-- Currency indicator -->
-      <p class="text-[10px] text-purple-400/60 mt-4 font-medium">
-        💱 Showing prices in <span id="currencyDisplay" class="text-white font-bold">USD</span>
-      </p>
+      <div class="mt-6 flex justify-center">
+        <span class="currency-indicator">
+          💱 Pay in <strong id="currencyDisplay">USD</strong>
+        </span>
+      </div>
     </section>
 
     <div class="mb-8 space-y-4">
@@ -435,77 +394,61 @@
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">After checkout on Selar, your credentials and activation links are delivered instantly to your email address. Check your inbox (and spam folder) right after payment. If you don't receive it within 10 minutes, contact our support team.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">After checkout on Selar, your credentials and activation links are delivered instantly to your email address. Check your inbox (and spam folder) right after payment.</p>
           </div>
         </div>
-
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
             <span class="font-bold text-purple-400 text-sm">What payment methods are accepted?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">We use Selar for secure checkout. Selar accepts card payments (Visa, Mastercard), M-Pesa (Kenya), bank transfers, and mobile money across Africa. All transactions are encrypted and secure.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">We use Selar for secure checkout. Selar accepts card payments, M-Pesa, bank transfers, and mobile money across Africa. All transactions are encrypted and secure.</p>
           </div>
         </div>
-
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
-            <span class="font-bold text-purple-400 text-sm">How long does delivery take?</span>
+            <span class="font-bold text-purple-400 text-sm">Can I pay in my local currency?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">Delivery is instant! Once your payment is confirmed, your access credentials are sent automatically to your email within 1-5 minutes. For M-Pesa payments, confirmation may take up to 10 minutes.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">Yes! Selar supports multiple African currencies including KES, NGN, GHS, ZAR, UGX, TZS, and more. When you click "Buy Now", you'll be redirected to Selar where you can pay in your selected currency.</p>
           </div>
         </div>
-
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
             <span class="font-bold text-purple-400 text-sm">What if I have trouble setting up?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">Our support team is available 24/7 to help you with setup. Contact us via WhatsApp at +254 781 052 997 or email kennedynjoga@proton.me. We'll guide you through the activation process step by step.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">Our support team is available 24/7. Contact us via WhatsApp at +254 781 052 997 or email kennedynjoga@proton.me. We'll guide you through the activation process.</p>
           </div>
         </div>
-
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
-            <span class="font-bold text-purple-400 text-sm">Are these subscriptions legal and legitimate?</span>
+            <span class="font-bold text-purple-400 text-sm">Are these subscriptions legitimate?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">Yes! All our subscriptions are 100% legitimate and sourced directly from authorized distributors. We partner with verified providers to ensure you get genuine access to all services.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">Yes! All subscriptions are 100% legitimate and sourced directly from authorized distributors. We partner with verified providers for genuine access.</p>
           </div>
         </div>
-
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
-            <span class="font-bold text-purple-400 text-sm">Can I cancel or get a refund?</span>
+            <span class="font-bold text-purple-400 text-sm">Can I get a refund?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">We offer a 7-day money-back guarantee on all subscriptions. If you're not satisfied with your purchase, contact us within 7 days of purchase for a full refund. No questions asked.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">We offer a 7-day money-back guarantee on all subscriptions. Contact us within 7 days for a full refund. No questions asked.</p>
           </div>
         </div>
-
         <div class="faq-item glass rounded-xl overflow-hidden">
           <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
-            <span class="font-bold text-purple-400 text-sm">Can I use these subscriptions on multiple devices?</span>
+            <span class="font-bold text-purple-400 text-sm">Do you offer bulk discounts?</span>
             <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
           <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">Yes! Our subscriptions work on multiple devices including smartphones, tablets, smart TVs, computers, and streaming devices like Fire Stick. Check individual product details for specific device compatibility.</p>
-          </div>
-        </div>
-
-        <div class="faq-item glass rounded-xl overflow-hidden">
-          <button class="faq-trigger w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false">
-            <span class="font-bold text-purple-400 text-sm">Do you offer bulk or business discounts?</span>
-            <svg class="faq-arrow w-4 h-4 text-slate-500 shrink-0 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </button>
-          <div class="faq-body hidden px-6 pb-5">
-            <p class="text-xs text-slate-400 leading-relaxed">Yes! We offer special discounts for bulk purchases and business accounts. Contact our sales team at kennedynjoga@proton.me for custom pricing and volume discounts.</p>
+            <p class="text-xs text-slate-400 leading-relaxed">Yes! Contact our sales team at kennedynjoga@proton.me for custom pricing and volume discounts.</p>
           </div>
         </div>
       </div>
@@ -553,37 +496,19 @@
     // ─── CURRENCIES ──────────────────────────────────────────────────────────
     const CURRENCIES = ['USD','KES','NGN','GHS','ZAR','TZS','UGX','XAF','XOF','MAD','EGP','ETB','ZMW','MWK','BWP','MUR'];
     const FALLBACK_RATES = { 
-      USD: 1,
-      KES: 132.5,
-      NGN: 1450,
-      GHS: 14.8,
-      ZAR: 18.4,
-      TZS: 2580,
-      UGX: 3650,
-      XAF: 610,
-      XOF: 610,
-      MAD: 10.2,
-      EGP: 30.8,
-      ETB: 55.6,
-      ZMW: 21.5,
-      MWK: 1740,
-      BWP: 13.6,
-      MUR: 45.8
+      USD: 1, KES: 132.5, NGN: 1450, GHS: 14.8, ZAR: 18.4,
+      TZS: 2580, UGX: 3650, XAF: 610, XOF: 610, MAD: 10.2,
+      EGP: 30.8, ETB: 55.6, ZMW: 21.5, MWK: 1740, BWP: 13.6, MUR: 45.8
     };
 
-    // ─── COUNTRY TO CURRENCY MAPPING ──────────────────────────────────────
-    const countryCurrencyMap = {
-      KE: 'KES', NG: 'NGN', GH: 'GHS', ZA: 'ZAR',
-      TZ: 'TZS', UG: 'UGX', CM: 'XAF', SN: 'XOF',
-      MA: 'MAD', EG: 'EGP', ET: 'ETB', ZM: 'ZMW',
-      MW: 'MWK', BW: 'BWP', MU: 'MUR'
-    };
+    // ─── SELAR SUPPORTED CURRENCIES ──────────────────────────────────────────
+    // These are currencies that Selar actually accepts
+    const SELAR_SUPPORTED = ['KES', 'NGN', 'GHS', 'ZAR', 'UGX', 'TZS', 'USD', 'XAF', 'XOF'];
 
     const locations = [
       "Nairobi","Mombasa","Lagos","Accra","Johannesburg",
       "Dar es Salaam","Kampala","Yaoundé","Dakar","Casablanca",
-      "Cairo","Addis Ababa","Lusaka","Lilongwe","Gaborone","Port Louis",
-      "Eldoret","Nakuru","Abuja","Kisumu","Kumasi","Pretoria"
+      "Cairo","Addis Ababa","Lusaka","Lilongwe","Gaborone","Port Louis"
     ];
 
     let currentCurrency = 'USD';
@@ -611,7 +536,6 @@
           'Gaborone': 'BWP',
           'Port_Louis': 'MUR'
         };
-        
         for (const [key, value] of Object.entries(countryMap)) {
           if (zone.includes(key)) return value;
         }
@@ -643,7 +567,7 @@
       }
     }
 
-    // ─── PAYMENT ──────────────────────────────────────────────────────────
+    // ─── PAYMENT WITH CURRENCY ──────────────────────────────────────────────
     function buyProduct(productId) {
       const product = products.find(p => p.id === productId);
       if (!product) {
@@ -659,15 +583,28 @@
         }
       });
 
+      // Build Selar URL with currency parameter
+      let checkoutUrl = product.selarUrl;
+      
+      // Add currency parameter if supported by Selar
+      if (SELAR_SUPPORTED.includes(currentCurrency)) {
+        // Check if URL already has parameters
+        const hasParams = checkoutUrl.includes('?');
+        checkoutUrl += hasParams ? '&' : '?';
+        checkoutUrl += `currency=${currentCurrency}`;
+      }
+
       setTimeout(() => {
-        window.open(product.selarUrl, '_blank');
+        window.open(checkoutUrl, '_blank');
         buttons.forEach(btn => {
           if (btn.closest('.product-card')?.querySelector(`[data-product-id="${productId}"]`)) {
             btn.innerHTML = 'Instant Access →';
             btn.disabled = false;
           }
         });
-        showToast(`🔗 Opening ${product.name} checkout...`);
+        const currencyMsg = SELAR_SUPPORTED.includes(currentCurrency) ? 
+          ` in ${currentCurrency}` : ' (USD)';
+        showToast(`🔗 Opening ${product.name} checkout${currencyMsg}...`);
       }, 500);
     }
 
@@ -757,7 +694,7 @@
               ${stockWarning}
             </div>
             <button onclick="buyProduct(${p.id})" class="btn-buy mt-auto" aria-label="Buy ${p.name}">
-              Instant Access →
+              ${SELAR_SUPPORTED.includes(currentCurrency) ? `Pay in ${currentCurrency}` : 'Instant Access →'}
             </button>
           </div>
         </div>
